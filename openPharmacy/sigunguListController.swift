@@ -69,13 +69,12 @@ class sigunguListController: UITableViewController {
         default:
             NSLog("오류")
         }
+        
+        
     }
     
     // MARK:- 2단계로 넘길 값 선택
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
-        
         if segue.identifier == "ListOpen" {
             let path = self.tableView.indexPath(for: sender as! UITableViewCell)
             let sigunguVC = segue.destination as? ListPharmacyController

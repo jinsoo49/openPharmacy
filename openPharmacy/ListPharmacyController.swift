@@ -2,7 +2,7 @@
 import UIKit
 import CoreLocation
 
-class ListPharmacyController: UITableViewController, XMLParserDelegate {
+class ListPharmacyController: UITableViewController, XMLParserDelegate, CLLocationManagerDelegate {
     
     var xmlParser = XMLParser()
     var viewWidth = 0
@@ -25,12 +25,30 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate {
     var distance = ""
     
     var mvo: LocaleVO!
+    var locationManager:CLLocationManager!
     
+    var coorlat = 0.0
+    var coorlon = 0.0
     // 시간 계산
     let cal = Calendar.current
     let date = Date()
     
     let section = ["영업 중", "영업 종료"]
+    
+    var temp = [String]()
+    var count = 0
+    
+    lazy var list : [LocaleVO] = {
+        var datalist = [LocaleVO]()
+        for row in self.pharCloseItems{
+            let mvo = LocaleVO()
+            mvo.dutyName = self.pharCloseItems[count]
+            
+            datalist.append(mvo)
+        }
+        
+        return datalist
+    }()
     
     
     func requestMovieInfo(_ s1: String, _ s2: String) {
@@ -150,6 +168,7 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate {
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController?.navigationBar.topItem?.title = ""
         
+        getLocation()
         requestMovieInfo(sido, sigungu)
         itemDiv()
         sort()
@@ -165,9 +184,38 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate {
         navigationItem.titleView = imageView
     }
     
-
+    func getLocation(){
+        //현재위치 가져오기
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization() //권한 요청
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        let coor = locationManager.location?.coordinate
+        coorlat = coor!.latitude
+        coorlon = coor!.longitude
+        print("latitude : " + String(describing: coor!.latitude) + " / longitude : " + String(describing: coor!.longitude))
+        
+    }
     
-    
+    // MARK:- 2단계로 넘길 값 선택
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "OpenMap" {
+            let path = self.tableView.indexPath(for: sender as! UITableViewCell)
+            let VC = segue.destination as? MapViewController
+            
+            if path?.section == 0 {
+//                VC?.mvo.dutyName = pharOpenItems[(path?.row)!]["dutyName"]
+//                VC?.mvo.dutyAddr = pharOpenItems[(path?.row)!]["dutyAddr"]
+            } else if path?.section == 1 {
+                count = (path?.row)!
+                NSLog("\(self.list[path!.row]))")
+                VC?.mvo = self.list[path!.row]
+                
+            }
+            
+        }
+    }
 }
 
 // MARK: - Table view data source
@@ -266,7 +314,7 @@ extension ListPharmacyController {
 extension ListPharmacyController {
     // 구 삼각법을 기준으로 대원거리(m단위) 요청
     func distanceKm(lat: Double, lon: Double) -> String {
-        let myLocation = CLLocation(latitude: 37.590979, longitude: 126.692035)
+        let myLocation = CLLocation(latitude: coorlat, longitude: coorlon)
         let myBuddysLocation = CLLocation(latitude: lat, longitude: lon)
         let distance = myLocation.distance(from: myBuddysLocation) / 1000
         
