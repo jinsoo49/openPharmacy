@@ -13,7 +13,6 @@
 		15673C7121A3BB5F001F9D99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15673C7021A3BB5F001F9D99 /* Assets.xcassets */; };
 		15673C7421A3BB5F001F9D99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15673C7221A3BB5F001F9D99 /* LaunchScreen.storyboard */; };
 		15673CFA21A3C32F001F9D99 /* Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 15673C8421A3BEFB001F9D99 /* Header.h */; };
-		15673CFF21A3C3AC001F9D99 /* strip-frameworks.sh in Resources */ = {isa = PBXBuildFile; fileRef = 15673CFE21A3C3AC001F9D99 /* strip-frameworks.sh */; };
 		15673D0121A40353001F9D99 /* sidoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15673D0021A40353001F9D99 /* sidoListController.swift */; };
 		15673D0521A408CE001F9D99 /* LocaleVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15673D0421A408CE001F9D99 /* LocaleVO.swift */; };
 		15673D0721A4110A001F9D99 /* sigunguListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15673D0621A4110A001F9D99 /* sigunguListController.swift */; };
@@ -59,10 +58,7 @@
 		15673C7021A3BB5F001F9D99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15673C7321A3BB5F001F9D99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15673C7521A3BB5F001F9D99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		15673C7C21A3BC00001F9D99 /* NMapViewerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NMapViewerSDK.framework; sourceTree = "<group>"; };
-		15673C7D21A3BC00001F9D99 /* ApiGatewayMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ApiGatewayMac.framework; sourceTree = "<group>"; };
 		15673C8421A3BEFB001F9D99 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
-		15673CFE21A3C3AC001F9D99 /* strip-frameworks.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "strip-frameworks.sh"; sourceTree = "<group>"; };
 		15673D0021A40353001F9D99 /* sidoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sidoListController.swift; sourceTree = "<group>"; };
 		15673D0421A408CE001F9D99 /* LocaleVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleVO.swift; sourceTree = "<group>"; };
 		15673D0621A4110A001F9D99 /* sigunguListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sigunguListController.swift; sourceTree = "<group>"; };
@@ -114,10 +110,8 @@
 		15673C5D21A3BB5E001F9D99 = {
 			isa = PBXGroup;
 			children = (
-				15673CFD21A3C3AC001F9D99 /* Scripts */,
 				15673C6821A3BB5E001F9D99 /* openPharmacy */,
 				15673C6721A3BB5E001F9D99 /* Products */,
-				15673C7B21A3BC00001F9D99 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,23 +142,6 @@
 				15673D3521A487D4001F9D99 /* dutyListCell.swift */,
 			);
 			path = openPharmacy;
-			sourceTree = "<group>";
-		};
-		15673C7B21A3BC00001F9D99 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				15673C7C21A3BC00001F9D99 /* NMapViewerSDK.framework */,
-				15673C7D21A3BC00001F9D99 /* ApiGatewayMac.framework */,
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		15673CFD21A3C3AC001F9D99 /* Scripts */ = {
-			isa = PBXGroup;
-			children = (
-				15673CFE21A3C3AC001F9D99 /* strip-frameworks.sh */,
-			);
-			path = Scripts;
 			sourceTree = "<group>";
 		};
 		15673D0821A44C9C001F9D99 /* Resources */ = {
@@ -262,7 +239,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				15673D1D21A44CBE001F9D99 /* logo_sejong.png in Resources */,
-				15673CFF21A3C3AC001F9D99 /* strip-frameworks.sh in Resources */,
 				15673C7421A3BB5F001F9D99 /* LaunchScreen.storyboard in Resources */,
 				15673D2321A44CBE001F9D99 /* logo_chungnam.png in Resources */,
 				15673D2921A44CBE001F9D99 /* logo_kangwon.png in Resources */,

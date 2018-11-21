@@ -38,7 +38,7 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate {
         let sido = s1.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let sigungu = s2.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
-        let weekday = cal.component(.weekday, from: date) + 1
+        let weekday = cal.component(.weekday, from: date) - 1
         let urlStr = "http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire?serviceKey=tksRzRc3Vk7YN6lfzN86PfaFhlZNsTGI1h2RxwYwpG7DBEX0ntu2%2F1ZjhiEQWnUR23s6fcj1qX8sHa355uKrlA%3D%3D&Q0=\(sido)&Q1=\(sigungu)&QT=\(weekday)&ORD=NAME&pageNo=1&startPage=1&numOfRows=100&pageSize=10"
         guard let xmlParser = XMLParser(contentsOf: URL(string: urlStr)!) else { return }
         
@@ -91,6 +91,7 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate {
     // 현재 테그에 담겨있는 문자열 전달
     public func parser(_ parser: XMLParser, foundCharacters string: String)
     {
+        let weekday = cal.component(.weekday, from: date) - 1
         if (currentElement == "dutyAddr") {
             dutyAddr = string
         } else if (currentElement == "dutyName") {
@@ -99,10 +100,13 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate {
             dutyAddrDetail = string
         } else if (currentElement == "dutyTel1") {
             dutyTell = string
-        } else if (currentElement == "dutyTime1c") {            // 꼭 수정해야함
+        } else if (currentElement == "dutyTime\(weekday)c") {
             dutyTimec = string
-        } else if (currentElement == "dutyTime1s") {
+        } else if (currentElement == "dutyTime\(weekday)s") {
             dutyTimes = string
+            if (string == "09  ") {
+                dutyTimes = "0900"
+            }
         } else if (currentElement == "wgs84Lat") {
             dutyLat = string
         } else if (currentElement == "wgs84Lon") {
