@@ -12,10 +12,6 @@
 		15673C6F21A3BB5E001F9D99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15673C6D21A3BB5E001F9D99 /* Main.storyboard */; };
 		15673C7121A3BB5F001F9D99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15673C7021A3BB5F001F9D99 /* Assets.xcassets */; };
 		15673C7421A3BB5F001F9D99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15673C7221A3BB5F001F9D99 /* LaunchScreen.storyboard */; };
-		15673C7E21A3BC00001F9D99 /* NMapViewerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15673C7C21A3BC00001F9D99 /* NMapViewerSDK.framework */; };
-		15673C8021A3BC13001F9D99 /* ApiGatewayMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15673C7D21A3BC00001F9D99 /* ApiGatewayMac.framework */; };
-		15673C8121A3BC13001F9D99 /* ApiGatewayMac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 15673C7D21A3BC00001F9D99 /* ApiGatewayMac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		15673C8621A3C127001F9D99 /* NMapViewResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15673C8521A3C127001F9D99 /* NMapViewResources.swift */; };
 		15673CFA21A3C32F001F9D99 /* Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 15673C8421A3BEFB001F9D99 /* Header.h */; };
 		15673CFF21A3C3AC001F9D99 /* strip-frameworks.sh in Resources */ = {isa = PBXBuildFile; fileRef = 15673CFE21A3C3AC001F9D99 /* strip-frameworks.sh */; };
 		15673D0121A40353001F9D99 /* sidoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15673D0021A40353001F9D99 /* sidoListController.swift */; };
@@ -55,20 +51,6 @@
 		1576639821A586BA0068629D /* animat-search-color.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1576639721A586BA0068629D /* animat-search-color.gif */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		15673C8221A3BC13001F9D99 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				15673C8121A3BC13001F9D99 /* ApiGatewayMac.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		15673C6621A3BB5E001F9D99 /* openPharmacy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openPharmacy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15673C6921A3BB5E001F9D99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,7 +62,6 @@
 		15673C7C21A3BC00001F9D99 /* NMapViewerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NMapViewerSDK.framework; sourceTree = "<group>"; };
 		15673C7D21A3BC00001F9D99 /* ApiGatewayMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ApiGatewayMac.framework; sourceTree = "<group>"; };
 		15673C8421A3BEFB001F9D99 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
-		15673C8521A3C127001F9D99 /* NMapViewResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NMapViewResources.swift; sourceTree = "<group>"; };
 		15673CFE21A3C3AC001F9D99 /* strip-frameworks.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "strip-frameworks.sh"; sourceTree = "<group>"; };
 		15673D0021A40353001F9D99 /* sidoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sidoListController.swift; sourceTree = "<group>"; };
 		15673D0421A408CE001F9D99 /* LocaleVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleVO.swift; sourceTree = "<group>"; };
@@ -124,8 +105,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15673C7E21A3BC00001F9D99 /* NMapViewerSDK.framework in Frameworks */,
-				15673C8021A3BC13001F9D99 /* ApiGatewayMac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				15673D0821A44C9C001F9D99 /* Resources */,
-				15673C8521A3C127001F9D99 /* NMapViewResources.swift */,
 				15673C6921A3BB5E001F9D99 /* AppDelegate.swift */,
 				15673C6B21A3BB5E001F9D99 /* MapViewController.swift */,
 				15673C6D21A3BB5E001F9D99 /* Main.storyboard */,
@@ -235,8 +213,6 @@
 				15673C6221A3BB5E001F9D99 /* Sources */,
 				15673C6321A3BB5E001F9D99 /* Frameworks */,
 				15673C6421A3BB5E001F9D99 /* Resources */,
-				15673C8221A3BC13001F9D99 /* Embed Frameworks */,
-				15673C8321A3BDAF001F9D99 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -323,27 +299,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		15673C8321A3BDAF001F9D99 /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nsh ./Scripts/strip-frameworks.sh\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		15673C6221A3BB5E001F9D99 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -357,7 +312,6 @@
 				15673D0121A40353001F9D99 /* sidoListController.swift in Sources */,
 				15673CFA21A3C32F001F9D99 /* Header.h in Sources */,
 				15673C6C21A3BB5E001F9D99 /* MapViewController.swift in Sources */,
-				15673C8621A3C127001F9D99 /* NMapViewResources.swift in Sources */,
 				15673C6A21A3BB5E001F9D99 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,22 +470,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V825W3XZDT;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = openPharmacy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lxml2",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinsoo49.openPharmacy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/pro/openPharmacy/openPharmacy/Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -543,22 +491,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V825W3XZDT;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = openPharmacy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lxml2",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinsoo49.openPharmacy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/pro/openPharmacy/openPharmacy/Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

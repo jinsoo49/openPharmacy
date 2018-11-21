@@ -1,5 +1,6 @@
 
 import UIKit
+import CoreLocation
 
 class ListPharmacyController: UITableViewController, XMLParserDelegate {
     
@@ -39,7 +40,6 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate {
         
         let weekday = cal.component(.weekday, from: date) + 1
         let urlStr = "http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire?serviceKey=tksRzRc3Vk7YN6lfzN86PfaFhlZNsTGI1h2RxwYwpG7DBEX0ntu2%2F1ZjhiEQWnUR23s6fcj1qX8sHa355uKrlA%3D%3D&Q0=\(sido)&Q1=\(sigungu)&QT=\(weekday)&ORD=NAME&pageNo=1&startPage=1&numOfRows=100&pageSize=10"
-//        let url = "http://api.koreafilm.or.kr/openapi-data2/service/api105/getOpenDataList"
         guard let xmlParser = XMLParser(contentsOf: URL(string: urlStr)!) else { return }
         
         xmlParser.delegate = self

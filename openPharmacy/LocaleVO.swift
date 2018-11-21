@@ -1,6 +1,6 @@
 
 
-import Foundation
+import UIKit
 
 class LocaleVO: UITableViewController{
     var sido: String?
