@@ -1,24 +1,247 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OjJ-j8-2Od">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SeoulHangangB.otf">
+            <string>SeoulHangangB</string>
+        </array>
+        <array key="SeoulHangangL.otf">
+            <string>SeoulHangangL</string>
+        </array>
+        <array key="SeoulNamsanB.otf">
+            <string>SeoulNamsanB</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="openPharmacy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="kgP-hm-6tk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="3606" y="136"/>
+        </scene>
+        <!--Sido List Controller-->
+        <scene sceneID="a1L-1t-M5H">
+            <objects>
+                <tableViewController id="hMz-Fs-lwe" customClass="sidoListController" customModule="openPharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dRa-tU-ETe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="QVX-cJ-VWV">
+                            <rect key="frame" x="0.0" y="108" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListCell" id="d97-fv-vVt" customClass="sidoCell" customModule="openPharmacy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d97-fv-vVt" id="mE1-9q-Tbv">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CfR-MV-Ppt">
+                                            <rect key="frame" x="10" y="10" width="321" height="59.5"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="CfR-MV-Ppt" secondAttribute="trailing" constant="10" id="0Ug-kK-K7p"/>
+                                        <constraint firstAttribute="bottom" secondItem="CfR-MV-Ppt" secondAttribute="bottom" constant="10" id="6A8-FM-7Ag"/>
+                                        <constraint firstItem="CfR-MV-Ppt" firstAttribute="leading" secondItem="mE1-9q-Tbv" secondAttribute="leading" constant="10" id="6wK-2V-aVj"/>
+                                        <constraint firstItem="CfR-MV-Ppt" firstAttribute="top" secondItem="mE1-9q-Tbv" secondAttribute="top" constant="10" id="dCu-nz-OEN"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="thumbnail" destination="CfR-MV-Ppt" id="bkr-wg-q9i"/>
+                                    <segue destination="UUA-Ju-DlA" kind="show" identifier="sigunguOpen" id="IhY-1X-eRt"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="hMz-Fs-lwe" id="uSk-9N-giq"/>
+                            <outlet property="delegate" destination="hMz-Fs-lwe" id="ki8-SQ-Bh7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="bSQ-Rm-Yhh"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mWD-B3-m4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1032.8" y="133.5832083958021"/>
+        </scene>
+        <!--Sigungu List Controller-->
+        <scene sceneID="tay-m7-bfa">
+            <objects>
+                <tableViewController id="UUA-Ju-DlA" customClass="sigunguListController" customModule="openPharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3HW-dx-eR0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListCell2" textLabel="cC8-tb-Yyf" style="IBUITableViewCellStyleDefault" id="xWp-86-uew">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xWp-86-uew" id="rEw-VL-9fF">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cC8-tb-Yyf">
+                                            <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="SeoulHangangB" family="SeoulHangang" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Dfs-ZL-n4U" kind="show" identifier="ListOpen" id="wqG-fw-Jks"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UUA-Ju-DlA" id="Y08-ar-zaS"/>
+                            <outlet property="delegate" destination="UUA-Ju-DlA" id="VrO-Gd-ns2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="stv-Da-G1O"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qTM-nv-VVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1865" y="134"/>
+        </scene>
+        <!--List Pharmacy Controller-->
+        <scene sceneID="qvu-hX-zAG">
+            <objects>
+                <tableViewController id="Dfs-ZL-n4U" customClass="ListPharmacyController" customModule="openPharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6FH-0L-HUr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="dutyListCell" id="h7g-Tf-EeX" customClass="dutyListCell" customModule="openPharmacy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h7g-Tf-EeX" id="RJA-Nq-Pc9">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계산약국" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WW-ha-BeK">
+                                            <rect key="frame" x="24" y="19" width="270" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="IaO-Rh-kLx"/>
+                                                <constraint firstAttribute="width" constant="270" id="bop-EJ-NLk"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="SeoulNamsanB" family="SeoulNamsan" pointSize="23"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.3 km" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubn-rp-7gJ">
+                                            <rect key="frame" x="304.5" y="67.5" width="58.5" height="19"/>
+                                            <fontDescription key="fontDescription" name="SeoulHangangB" family="SeoulHangang" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iaj-lI-UCJ">
+                                            <rect key="frame" x="330" y="15" width="25" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="25" id="4CT-ZL-pZm"/>
+                                                <constraint firstAttribute="height" constant="25" id="E3t-Jj-hCp"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인천광역시 계양구 계산동 산 어딘가 주소는 끝났는데 혹시 몰라 더적음" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EaA-HF-s9z">
+                                            <rect key="frame" x="12" y="67" width="270" height="28.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="270" id="2Ui-7R-3el"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="SeoulHangangL" family="SeoulHangang" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영업시간 09:00 ~ 21:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tC6-A6-k3l">
+                                            <rect key="frame" x="24" y="49" width="270" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="270" id="9Rk-yk-vuj"/>
+                                                <constraint firstAttribute="height" constant="12" id="UFz-nv-v1v"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="SeoulHangangL" family="SeoulHangang" pointSize="10"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tC6-A6-k3l" firstAttribute="leading" secondItem="RJA-Nq-Pc9" secondAttribute="leadingMargin" constant="8" id="AIQ-n0-nEK"/>
+                                        <constraint firstItem="6WW-ha-BeK" firstAttribute="top" secondItem="RJA-Nq-Pc9" secondAttribute="topMargin" constant="8" id="BcB-zY-IxI"/>
+                                        <constraint firstAttribute="bottom" secondItem="EaA-HF-s9z" secondAttribute="bottom" constant="4" id="IYV-O0-765"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ubn-rp-7gJ" secondAttribute="trailing" constant="12" id="N8m-KG-7ng"/>
+                                        <constraint firstItem="6WW-ha-BeK" firstAttribute="leading" secondItem="RJA-Nq-Pc9" secondAttribute="leadingMargin" constant="8" id="NWP-8u-CCi"/>
+                                        <constraint firstItem="EaA-HF-s9z" firstAttribute="leading" secondItem="RJA-Nq-Pc9" secondAttribute="leading" constant="12" id="Nxj-Z5-c7O"/>
+                                        <constraint firstItem="tC6-A6-k3l" firstAttribute="top" secondItem="6WW-ha-BeK" secondAttribute="bottom" constant="6" id="gjj-dj-zdP"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ubn-rp-7gJ" secondAttribute="bottom" constant="13" id="hCA-Ai-7iT"/>
+                                        <constraint firstItem="iaj-lI-UCJ" firstAttribute="top" secondItem="RJA-Nq-Pc9" secondAttribute="topMargin" constant="4" id="hFj-C4-fnI"/>
+                                        <constraint firstAttribute="trailing" secondItem="iaj-lI-UCJ" secondAttribute="trailing" constant="20" id="mpA-bY-JtY"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dutyAddr" destination="EaA-HF-s9z" id="KKc-FA-ZIc"/>
+                                    <outlet property="dutyIcon" destination="iaj-lI-UCJ" id="ak7-vo-m0k"/>
+                                    <outlet property="dutyKm" destination="Ubn-rp-7gJ" id="PeN-ZA-DbY"/>
+                                    <outlet property="dutyName" destination="6WW-ha-BeK" id="ESx-ag-RSt"/>
+                                    <outlet property="dutyTime" destination="tC6-A6-k3l" id="iU6-d6-W8H"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="OpenMap" id="Udz-gp-wWK"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Dfs-ZL-n4U" id="d7M-Iq-ifc"/>
+                            <outlet property="delegate" destination="Dfs-ZL-n4U" id="HOq-vd-jep"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="UaZ-Le-en6">
+                        <barButtonItem key="rightBarButtonItem" title="정렬" id="8Pt-r7-mop">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9tb-M5-YUF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2692" y="136.28185907046478"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xVB-Bm-mhD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OjJ-j8-2Od" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="2GB-kC-8Dn">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hMz-Fs-lwe" kind="relationship" relationship="rootViewController" id="ehd-5S-Zdh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d6Z-ks-grV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="231" y="134"/>
         </scene>
     </scenes>
 </document>
