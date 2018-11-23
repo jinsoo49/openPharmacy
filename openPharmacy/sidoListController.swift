@@ -1,12 +1,13 @@
 
 
 import UIKit
+import CoreLocation
 
-class sidoListController: UITableViewController {
+class sidoListController: UICollectionViewController, UICollectionViewDelegateFlowLayout, CLLocationManagerDelegate {
     
     
     var sidoset = ["seoul", "gyeonggi" , "incheon", "busan", "daegu", "daejeon", "gwangju", "ulsan", "kangwon", "sejong", "chungbuk", "chungnam", "jeonbuk", "jeonnam", "gyeongbuk", "gyeongnam", "jeju"]
-    
+    var locationManager:CLLocationManager!
     lazy var list : [LocaleVO] = {
         var datalist = [LocaleVO]()
         
@@ -21,20 +22,21 @@ class sidoListController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getLocation()
         makeLogo()
     }
     
     // MARK:- 2단계로 넘길 값 선택
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "sigunguOpen" {
-            let path = self.tableView.indexPath(for: sender as! UITableViewCell)
-            
+            let path = self.collectionView.indexPath(for: sender as! UICollectionViewCell)
+
             let sigunguVC = segue.destination as? sigunguListController
             sigunguVC?.mvo = self.list[path!.row]
         }
     }
     
-    // 로고생성
+    // MARK:- 로고생성
     func makeLogo() {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         imageView.contentMode = .scaleAspectFit
@@ -42,29 +44,44 @@ class sidoListController: UITableViewController {
         imageView.image = image
         navigationItem.titleView = imageView
     }
+    
+    // MARK:- GPS 권한 요청
+    func getLocation() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization() //권한 요청
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        
+        
+    }
 }
 
-// MARK:- tableView 설정
+// MARK:- collectionView 설정
 extension sidoListController {
     
-    // 전체 row 갯수
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.list.count
     }
     
-    // 갯수에 따른 행 생성
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! sidoCell
         let row = self.list[indexPath.row]
         let logoName = "logo_\(row.sidoLogo!).png"
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as! sidoCell
         cell.thumbnail.image = UIImage(named: logoName)
+        
         return cell
     }
-    
-    // 행에 이벤트 등록
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NSLog("선택된 행은 \(indexPath.row)번째 행입니다.")
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = self.view.frame.width
+        return CGSize(width: size/2-10, height: size/2-10)
     }
     
-
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 4
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
 }

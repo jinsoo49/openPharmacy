@@ -2,7 +2,8 @@
 import UIKit
 import CoreLocation
 
-class ListPharmacyController: UITableViewController, XMLParserDelegate, CLLocationManagerDelegate {
+class ListPharmacyController: UITableViewController, XMLParserDelegate, CLLocationManagerDelegate, UISearchBarDelegate {
+    @IBOutlet var locationTable: UITableView!
     
     var xmlParser = XMLParser()
     var viewWidth = 0
@@ -34,9 +35,11 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate, CLLocati
     let date = Date()
     
     let section = ["영업 중", "영업 종료"]
-    
+    var urlStr = ""
     var temp = [String]()
     var count = 0
+    
+    var location_name_array = [String]()
     
     lazy var list : [LocaleVO] = {
         var datalist = [LocaleVO]()
@@ -57,7 +60,7 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate, CLLocati
         let sigungu = s2.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
         let weekday = cal.component(.weekday, from: date) - 1
-        let urlStr = "http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire?serviceKey=tksRzRc3Vk7YN6lfzN86PfaFhlZNsTGI1h2RxwYwpG7DBEX0ntu2%2F1ZjhiEQWnUR23s6fcj1qX8sHa355uKrlA%3D%3D&Q0=\(sido)&Q1=\(sigungu)&QT=\(weekday)&ORD=NAME&pageNo=1&startPage=1&numOfRows=100&pageSize=10"
+        urlStr = "http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire?serviceKey=tksRzRc3Vk7YN6lfzN86PfaFhlZNsTGI1h2RxwYwpG7DBEX0ntu2%2F1ZjhiEQWnUR23s6fcj1qX8sHa355uKrlA%3D%3D&Q0=\(sido)&Q1=\(sigungu)&QT=\(weekday)&ORD=NAME&pageNo=1&startPage=1&numOfRows=100&pageSize=10"
         guard let xmlParser = XMLParser(contentsOf: URL(string: urlStr)!) else { return }
         
         xmlParser.delegate = self
@@ -120,6 +123,11 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate, CLLocati
             dutyTell = string
         } else if (currentElement == "dutyTime\(weekday)c") {
             dutyTimec = string
+            if (string == "21  " || string == "21 " ) {
+                dutyTimec = "2100"
+            } else if (string == "200 ") {
+                dutyTimec = "2000"
+            }
         } else if (currentElement == "dutyTime\(weekday)s") {
             dutyTimes = string
             if (string == "09  ") {
@@ -173,6 +181,9 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate, CLLocati
         itemDiv()
         sort()
         
+        // MARK:- 이하 searchbar 설정
+        self.locationTable.dataSource = self
+        self.locationTable.delegate = self
         
     }
 
@@ -191,6 +202,7 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate, CLLocati
         locationManager.requestWhenInUseAuthorization() //권한 요청
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+        
         let coor = locationManager.location?.coordinate
         coorlat = coor!.latitude
         coorlon = coor!.longitude
@@ -203,17 +215,14 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate, CLLocati
         if segue.identifier == "OpenMap" {
             let path = self.tableView.indexPath(for: sender as! UITableViewCell)
             let VC = segue.destination as? MapViewController
+            VC?.prepareOpenData = self.pharOpenItems
+            VC?.prepareCloseData = self.pharCloseItems
             
             if path?.section == 0 {
-//                VC?.mvo.dutyName = pharOpenItems[(path?.row)!]["dutyName"]
-//                VC?.mvo.dutyAddr = pharOpenItems[(path?.row)!]["dutyAddr"]
+                VC?.prepareOneData = pharOpenItems[path!.row]
             } else if path?.section == 1 {
-                count = (path?.row)!
-                NSLog("\(self.list[path!.row]))")
-                VC?.mvo = self.list[path!.row]
-                
+                VC?.prepareOneData = pharCloseItems[path!.row]
             }
-            
         }
     }
 }
@@ -341,12 +350,17 @@ extension ListPharmacyController {
         
         let nowTime = Int(hourStr+minStr)!
         print("nowTime : \(nowTime)")
+        
         for i in 0..<pharAllItems.count {
             let closeTime = pharAllItems[i]["dutyTimec"]!
             let openTime = pharAllItems[i]["dutyTimes"]!
+            
+            // 영업 중 / 영업 종료로 나누고 key,value 추가
             if nowTime < Int(closeTime)! && Int(openTime)! < nowTime {
+                pharAllItems[i].updateValue("영업 중", forKey: "dutyStatus")
                 pharOpenItems.append(pharAllItems[i])
             } else {
+                pharAllItems[i].updateValue("영업 종료", forKey: "dutyStatus")
                 pharCloseItems.append(pharAllItems[i])
             }
         }
