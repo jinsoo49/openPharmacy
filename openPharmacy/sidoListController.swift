@@ -8,6 +8,7 @@ class sidoListController: UICollectionViewController, UICollectionViewDelegateFl
     
     var sidoset = ["seoul", "gyeonggi" , "incheon", "busan", "daegu", "daejeon", "gwangju", "ulsan", "kangwon", "sejong", "chungbuk", "chungnam", "jeonbuk", "jeonnam", "gyeongbuk", "gyeongnam", "jeju"]
     var locationManager:CLLocationManager!
+    
     lazy var list : [LocaleVO] = {
         var datalist = [LocaleVO]()
         
@@ -22,8 +23,15 @@ class sidoListController: UICollectionViewController, UICollectionViewDelegateFl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.alpha = 0
+        UIView.animate(withDuration: 1.0, animations: {
+            self.view.alpha = 1
+        })
         getLocation()
         makeLogo()
+    }
+    
+    @IBAction func gotoHome(_ sender: UIStoryboardSegue){
     }
     
     // MARK:- 2단계로 넘길 값 선택
@@ -84,4 +92,6 @@ extension sidoListController {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
     }
+    
+
 }

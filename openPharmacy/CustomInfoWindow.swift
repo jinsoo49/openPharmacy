@@ -9,6 +9,7 @@ import UIKit
 
 class CustomInfoWindow: UIView {
     
+    @IBOutlet var telBtn: UIButton!
     @IBOutlet var infoName: UILabel!
     @IBOutlet var infoStatus: UILabel!
     @IBOutlet var infoDist: UILabel!

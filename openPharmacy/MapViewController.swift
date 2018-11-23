@@ -12,12 +12,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
 
     var mapView: GMSMapView!
 
+    var tellNumber = ""
 
     // 리스트에서 받을 인자들
     var prepareOpenData: [[String:String]]!
     var prepareCloseData: [[String:String]]!
     var prepareOneData: [String:String]!
     var url: String!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +50,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             marker.title = item["dutyName"]
             marker.snippet = item["dutyAddr"]
             marker.userData = item
+            marker.icon = UIImage(named: "marker_green.png")
             marker.map = mapView
         }
         
@@ -59,6 +63,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             marker.title = item["dutyName"]
             marker.snippet = item["dutyAddr"]
             marker.userData = item
+            marker.icon = UIImage(named: "marker_red.png")
             marker.map = mapView
         }
         
@@ -126,6 +131,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
         infoWindow.infoDist.text = "\(dictionary["distance"] as! String)km"
         
+        tellNumber = (dictionary["dutyTell"] as! String).components(separatedBy: "-").joined()
+        
         infoWindow.center = mapView.projection.point(for: location)
         
         infoWindow.center.y = infoWindow.center.y - 107
@@ -140,6 +147,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         infoWindow.layer.shadowColor = UIColor.black.cgColor
         infoWindow.layer.shadowRadius = 4;
         infoWindow.layer.shadowOpacity = 0.9;
+        
+        infoWindow.telBtn.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
         self.view.addSubview(infoWindow)
         
@@ -168,10 +177,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     }
     
     
-    
+    // 버튼 클릭시 전화연결
     @objc func buttonTapped(sender: UIButton) {
-        print("Yeah! Button is tapped!")
-        
+        if let url = URL(string: "tel://\(tellNumber)") {
+            UIApplication.shared.openURL(url)
+        }
     }
 
     

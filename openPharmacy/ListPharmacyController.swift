@@ -127,6 +127,8 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate, CLLocati
                 dutyTimec = "2100"
             } else if (string == "200 ") {
                 dutyTimec = "2000"
+            } else if (string == "100 "){
+                dutyTimec = "2200"
             }
         } else if (currentElement == "dutyTime\(weekday)s") {
             dutyTimes = string
@@ -174,7 +176,7 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate, CLLocati
         makeLogo()
         // backbutton수정
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.topItem?.title = "   "
         
         getLocation()
         requestMovieInfo(sido, sigungu)

@@ -48,6 +48,9 @@
 		1576639421A51BC40068629D /* SeoulNamsanB.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1576639221A51BC40068629D /* SeoulNamsanB.otf */; };
 		1576639621A568880068629D /* ios_launchscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 1576639521A568870068629D /* ios_launchscreen.png */; };
 		1576639821A586BA0068629D /* animat-search-color.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1576639721A586BA0068629D /* animat-search-color.gif */; };
+		15C7F51821A86FFA00DFBFF4 /* marker_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C7F51621A86FFA00DFBFF4 /* marker_green.png */; };
+		15C7F51921A86FFA00DFBFF4 /* marker_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C7F51721A86FFA00DFBFF4 /* marker_red.png */; };
+		15C7F51B21A8761F00DFBFF4 /* phoneIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C7F51A21A8761F00DFBFF4 /* phoneIcon.png */; };
 		15F13C9A21A72B8000E67F9D /* CustomInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F13C9921A72B8000E67F9D /* CustomInfoWindow.swift */; };
 		15F13C9C21A72F1500E67F9D /* CustomInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F13C9B21A72F1500E67F9D /* CustomInfoWindow.xib */; };
 		1D888DC458A0691225519894 /* libPods-openPharmacy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC3A2B1DE949A2F9F5C5271 /* libPods-openPharmacy.a */; };
@@ -98,6 +101,9 @@
 		1576639221A51BC40068629D /* SeoulNamsanB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SeoulNamsanB.otf; sourceTree = "<group>"; };
 		1576639521A568870068629D /* ios_launchscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ios_launchscreen.png; sourceTree = "<group>"; };
 		1576639721A586BA0068629D /* animat-search-color.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "animat-search-color.gif"; sourceTree = "<group>"; };
+		15C7F51621A86FFA00DFBFF4 /* marker_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker_green.png; sourceTree = "<group>"; };
+		15C7F51721A86FFA00DFBFF4 /* marker_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker_red.png; sourceTree = "<group>"; };
+		15C7F51A21A8761F00DFBFF4 /* phoneIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phoneIcon.png; sourceTree = "<group>"; };
 		15F13C9921A72B8000E67F9D /* CustomInfoWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInfoWindow.swift; sourceTree = "<group>"; };
 		15F13C9B21A72F1500E67F9D /* CustomInfoWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomInfoWindow.xib; sourceTree = "<group>"; };
 		17E49B6E15BA7E2D9FE4E4ED /* Pods-openPharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-openPharmacy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-openPharmacy/Pods-openPharmacy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +185,9 @@
 				15673D1921A44CBE001F9D99 /* logo_incheon.png */,
 				15673D2D21A45987001F9D99 /* mainlogo.png */,
 				15673D1021A44CBE001F9D99 /* logo_jeju.png */,
+				15C7F51621A86FFA00DFBFF4 /* marker_green.png */,
+				15C7F51A21A8761F00DFBFF4 /* phoneIcon.png */,
+				15C7F51721A86FFA00DFBFF4 /* marker_red.png */,
 				15673D1321A44CBE001F9D99 /* logo_jeonbuk.png */,
 				15673D0B21A44CBD001F9D99 /* logo_jeonnam.png */,
 				15673D1821A44CBE001F9D99 /* logo_kangwon.png */,
@@ -294,6 +303,8 @@
 				1576639021A51B8A0068629D /* SeoulHangangL.otf in Resources */,
 				1576638B21A50A050068629D /* netmarbleM.ttf in Resources */,
 				1576638C21A50A050068629D /* netmarbleL.ttf in Resources */,
+				15C7F51B21A8761F00DFBFF4 /* phoneIcon.png in Resources */,
+				15C7F51821A86FFA00DFBFF4 /* marker_green.png in Resources */,
 				15673D2021A44CBE001F9D99 /* logo_daejeon.png in Resources */,
 				1576639821A586BA0068629D /* animat-search-color.gif in Resources */,
 				15673C7121A3BB5F001F9D99 /* Assets.xcassets in Resources */,
@@ -303,6 +314,7 @@
 				15673D2121A44CBE001F9D99 /* logo_jeju.png in Resources */,
 				15673D3321A48790001F9D99 /* icon_green.png in Resources */,
 				1576638F21A51B8A0068629D /* SeoulHangangB.otf in Resources */,
+				15C7F51921A86FFA00DFBFF4 /* marker_red.png in Resources */,
 				15673D1A21A44CBE001F9D99 /* logo_gyeongbuk.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -69,7 +69,7 @@ class sigunguListController: UITableViewController {
         makeLogo()
         // backbutton수정
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.topItem?.title = "   "
         
         NSLog("linkurl = \(self.mvo.sidoLogo!)")
         
@@ -143,7 +143,7 @@ class sigunguListController: UITableViewController {
     
     // MARK:- 로고 생성
     func makeLogo() {
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        let imageView = UIImageView(frame: CGRect(x: 10, y: 0, width: 20, height: 20))
         imageView.contentMode = .scaleAspectFit
         let image = UIImage(named: "mainlogo.png")
         imageView.image = image
