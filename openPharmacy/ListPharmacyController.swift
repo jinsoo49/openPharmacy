@@ -1,7 +1,9 @@
 
 import UIKit
+import CoreLocation
 
-class ListPharmacyController: UITableViewController, XMLParserDelegate {
+class ListPharmacyController: UITableViewController, XMLParserDelegate, CLLocationManagerDelegate, UISearchBarDelegate {
+    @IBOutlet var locationTable: UITableView!
     
     var xmlParser = XMLParser()
     var viewWidth = 0
@@ -24,12 +26,32 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate {
     var distance = ""
     
     var mvo: LocaleVO!
+    var locationManager:CLLocationManager!
     
+    var coorlat = 0.0
+    var coorlon = 0.0
     // 시간 계산
     let cal = Calendar.current
     let date = Date()
     
     let section = ["영업 중", "영업 종료"]
+    var urlStr = ""
+    var temp = [String]()
+    var count = 0
+    
+    var location_name_array = [String]()
+    
+    lazy var list : [LocaleVO] = {
+        var datalist = [LocaleVO]()
+        for row in self.pharCloseItems{
+            let mvo = LocaleVO()
+            mvo.dutyName = self.pharCloseItems[count]
+            
+            datalist.append(mvo)
+        }
+        
+        return datalist
+    }()
     
     
     func requestMovieInfo(_ s1: String, _ s2: String) {
@@ -37,9 +59,8 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate {
         let sido = s1.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let sigungu = s2.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
-        let weekday = cal.component(.weekday, from: date) + 1
-        let urlStr = "http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire?serviceKey=tksRzRc3Vk7YN6lfzN86PfaFhlZNsTGI1h2RxwYwpG7DBEX0ntu2%2F1ZjhiEQWnUR23s6fcj1qX8sHa355uKrlA%3D%3D&Q0=\(sido)&Q1=\(sigungu)&QT=\(weekday)&ORD=NAME&pageNo=1&startPage=1&numOfRows=100&pageSize=10"
-//        let url = "http://api.koreafilm.or.kr/openapi-data2/service/api105/getOpenDataList"
+        let weekday = cal.component(.weekday, from: date) - 1
+        urlStr = "http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire?serviceKey=tksRzRc3Vk7YN6lfzN86PfaFhlZNsTGI1h2RxwYwpG7DBEX0ntu2%2F1ZjhiEQWnUR23s6fcj1qX8sHa355uKrlA%3D%3D&Q0=\(sido)&Q1=\(sigungu)&QT=\(weekday)&ORD=NAME&pageNo=1&startPage=1&numOfRows=100&pageSize=10"
         guard let xmlParser = XMLParser(contentsOf: URL(string: urlStr)!) else { return }
         
         xmlParser.delegate = self
@@ -91,6 +112,7 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate {
     // 현재 테그에 담겨있는 문자열 전달
     public func parser(_ parser: XMLParser, foundCharacters string: String)
     {
+        let weekday = cal.component(.weekday, from: date) - 1
         if (currentElement == "dutyAddr") {
             dutyAddr = string
         } else if (currentElement == "dutyName") {
@@ -99,10 +121,20 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate {
             dutyAddrDetail = string
         } else if (currentElement == "dutyTel1") {
             dutyTell = string
-        } else if (currentElement == "dutyTime1c") {            // 꼭 수정해야함
+        } else if (currentElement == "dutyTime\(weekday)c") {
             dutyTimec = string
-        } else if (currentElement == "dutyTime1s") {
+            if (string == "21  " || string == "21 " ) {
+                dutyTimec = "2100"
+            } else if (string == "200 ") {
+                dutyTimec = "2000"
+            } else if (string == "100 "){
+                dutyTimec = "2200"
+            }
+        } else if (currentElement == "dutyTime\(weekday)s") {
             dutyTimes = string
+            if (string == "09  ") {
+                dutyTimes = "0900"
+            }
         } else if (currentElement == "wgs84Lat") {
             dutyLat = string
         } else if (currentElement == "wgs84Lon") {
@@ -144,12 +176,16 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate {
         makeLogo()
         // backbutton수정
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.topItem?.title = "   "
         
+        getLocation()
         requestMovieInfo(sido, sigungu)
         itemDiv()
         sort()
         
+        // MARK:- 이하 searchbar 설정
+        self.locationTable.dataSource = self
+        self.locationTable.delegate = self
         
     }
 
@@ -161,9 +197,36 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate {
         navigationItem.titleView = imageView
     }
     
-
+    func getLocation(){
+        //현재위치 가져오기
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization() //권한 요청
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        
+        let coor = locationManager.location?.coordinate
+        coorlat = coor!.latitude
+        coorlon = coor!.longitude
+        print("latitude : " + String(describing: coor!.latitude) + " / longitude : " + String(describing: coor!.longitude))
+        
+    }
     
-    
+    // MARK:- 2단계로 넘길 값 선택
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "OpenMap" {
+            let path = self.tableView.indexPath(for: sender as! UITableViewCell)
+            let VC = segue.destination as? MapViewController
+            VC?.prepareOpenData = self.pharOpenItems
+            VC?.prepareCloseData = self.pharCloseItems
+            
+            if path?.section == 0 {
+                VC?.prepareOneData = pharOpenItems[path!.row]
+            } else if path?.section == 1 {
+                VC?.prepareOneData = pharCloseItems[path!.row]
+            }
+        }
+    }
 }
 
 // MARK: - Table view data source
@@ -262,7 +325,7 @@ extension ListPharmacyController {
 extension ListPharmacyController {
     // 구 삼각법을 기준으로 대원거리(m단위) 요청
     func distanceKm(lat: Double, lon: Double) -> String {
-        let myLocation = CLLocation(latitude: 37.590979, longitude: 126.692035)
+        let myLocation = CLLocation(latitude: coorlat, longitude: coorlon)
         let myBuddysLocation = CLLocation(latitude: lat, longitude: lon)
         let distance = myLocation.distance(from: myBuddysLocation) / 1000
         
@@ -289,12 +352,17 @@ extension ListPharmacyController {
         
         let nowTime = Int(hourStr+minStr)!
         print("nowTime : \(nowTime)")
+        
         for i in 0..<pharAllItems.count {
             let closeTime = pharAllItems[i]["dutyTimec"]!
             let openTime = pharAllItems[i]["dutyTimes"]!
+            
+            // 영업 중 / 영업 종료로 나누고 key,value 추가
             if nowTime < Int(closeTime)! && Int(openTime)! < nowTime {
+                pharAllItems[i].updateValue("영업 중", forKey: "dutyStatus")
                 pharOpenItems.append(pharAllItems[i])
             } else {
+                pharAllItems[i].updateValue("영업 종료", forKey: "dutyStatus")
                 pharCloseItems.append(pharAllItems[i])
             }
         }

@@ -2,7 +2,7 @@
 
 import UIKit
 
-class sidoCell: UITableViewCell {
+class sidoCell: UICollectionViewCell {
     @IBOutlet var thumbnail: UIImageView!
     
 }

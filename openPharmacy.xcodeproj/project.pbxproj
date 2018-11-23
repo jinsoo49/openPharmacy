@@ -12,12 +12,7 @@
 		15673C6F21A3BB5E001F9D99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15673C6D21A3BB5E001F9D99 /* Main.storyboard */; };
 		15673C7121A3BB5F001F9D99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15673C7021A3BB5F001F9D99 /* Assets.xcassets */; };
 		15673C7421A3BB5F001F9D99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15673C7221A3BB5F001F9D99 /* LaunchScreen.storyboard */; };
-		15673C7E21A3BC00001F9D99 /* NMapViewerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15673C7C21A3BC00001F9D99 /* NMapViewerSDK.framework */; };
-		15673C8021A3BC13001F9D99 /* ApiGatewayMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15673C7D21A3BC00001F9D99 /* ApiGatewayMac.framework */; };
-		15673C8121A3BC13001F9D99 /* ApiGatewayMac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 15673C7D21A3BC00001F9D99 /* ApiGatewayMac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		15673C8621A3C127001F9D99 /* NMapViewResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15673C8521A3C127001F9D99 /* NMapViewResources.swift */; };
 		15673CFA21A3C32F001F9D99 /* Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 15673C8421A3BEFB001F9D99 /* Header.h */; };
-		15673CFF21A3C3AC001F9D99 /* strip-frameworks.sh in Resources */ = {isa = PBXBuildFile; fileRef = 15673CFE21A3C3AC001F9D99 /* strip-frameworks.sh */; };
 		15673D0121A40353001F9D99 /* sidoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15673D0021A40353001F9D99 /* sidoListController.swift */; };
 		15673D0521A408CE001F9D99 /* LocaleVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15673D0421A408CE001F9D99 /* LocaleVO.swift */; };
 		15673D0721A4110A001F9D99 /* sigunguListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15673D0621A4110A001F9D99 /* sigunguListController.swift */; };
@@ -53,23 +48,16 @@
 		1576639421A51BC40068629D /* SeoulNamsanB.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1576639221A51BC40068629D /* SeoulNamsanB.otf */; };
 		1576639621A568880068629D /* ios_launchscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 1576639521A568870068629D /* ios_launchscreen.png */; };
 		1576639821A586BA0068629D /* animat-search-color.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1576639721A586BA0068629D /* animat-search-color.gif */; };
+		15C7F51821A86FFA00DFBFF4 /* marker_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C7F51621A86FFA00DFBFF4 /* marker_green.png */; };
+		15C7F51921A86FFA00DFBFF4 /* marker_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C7F51721A86FFA00DFBFF4 /* marker_red.png */; };
+		15C7F51B21A8761F00DFBFF4 /* phoneIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C7F51A21A8761F00DFBFF4 /* phoneIcon.png */; };
+		15F13C9A21A72B8000E67F9D /* CustomInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F13C9921A72B8000E67F9D /* CustomInfoWindow.swift */; };
+		15F13C9C21A72F1500E67F9D /* CustomInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F13C9B21A72F1500E67F9D /* CustomInfoWindow.xib */; };
+		1D888DC458A0691225519894 /* libPods-openPharmacy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC3A2B1DE949A2F9F5C5271 /* libPods-openPharmacy.a */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		15673C8221A3BC13001F9D99 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				15673C8121A3BC13001F9D99 /* ApiGatewayMac.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		095224D3073A95BFEBEBD181 /* Pods-openPharmacy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-openPharmacy.release.xcconfig"; path = "Pods/Target Support Files/Pods-openPharmacy/Pods-openPharmacy.release.xcconfig"; sourceTree = "<group>"; };
 		15673C6621A3BB5E001F9D99 /* openPharmacy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openPharmacy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15673C6921A3BB5E001F9D99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15673C6B21A3BB5E001F9D99 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -77,11 +65,7 @@
 		15673C7021A3BB5F001F9D99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15673C7321A3BB5F001F9D99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15673C7521A3BB5F001F9D99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		15673C7C21A3BC00001F9D99 /* NMapViewerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NMapViewerSDK.framework; sourceTree = "<group>"; };
-		15673C7D21A3BC00001F9D99 /* ApiGatewayMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ApiGatewayMac.framework; sourceTree = "<group>"; };
 		15673C8421A3BEFB001F9D99 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
-		15673C8521A3C127001F9D99 /* NMapViewResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NMapViewResources.swift; sourceTree = "<group>"; };
-		15673CFE21A3C3AC001F9D99 /* strip-frameworks.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "strip-frameworks.sh"; sourceTree = "<group>"; };
 		15673D0021A40353001F9D99 /* sidoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sidoListController.swift; sourceTree = "<group>"; };
 		15673D0421A408CE001F9D99 /* LocaleVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleVO.swift; sourceTree = "<group>"; };
 		15673D0621A4110A001F9D99 /* sigunguListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sigunguListController.swift; sourceTree = "<group>"; };
@@ -117,6 +101,13 @@
 		1576639221A51BC40068629D /* SeoulNamsanB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SeoulNamsanB.otf; sourceTree = "<group>"; };
 		1576639521A568870068629D /* ios_launchscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ios_launchscreen.png; sourceTree = "<group>"; };
 		1576639721A586BA0068629D /* animat-search-color.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "animat-search-color.gif"; sourceTree = "<group>"; };
+		15C7F51621A86FFA00DFBFF4 /* marker_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker_green.png; sourceTree = "<group>"; };
+		15C7F51721A86FFA00DFBFF4 /* marker_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker_red.png; sourceTree = "<group>"; };
+		15C7F51A21A8761F00DFBFF4 /* phoneIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phoneIcon.png; sourceTree = "<group>"; };
+		15F13C9921A72B8000E67F9D /* CustomInfoWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInfoWindow.swift; sourceTree = "<group>"; };
+		15F13C9B21A72F1500E67F9D /* CustomInfoWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomInfoWindow.xib; sourceTree = "<group>"; };
+		17E49B6E15BA7E2D9FE4E4ED /* Pods-openPharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-openPharmacy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-openPharmacy/Pods-openPharmacy.debug.xcconfig"; sourceTree = "<group>"; };
+		8AC3A2B1DE949A2F9F5C5271 /* libPods-openPharmacy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-openPharmacy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15673C7E21A3BC00001F9D99 /* NMapViewerSDK.framework in Frameworks */,
-				15673C8021A3BC13001F9D99 /* ApiGatewayMac.framework in Frameworks */,
+				1D888DC458A0691225519894 /* libPods-openPharmacy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,10 +125,10 @@
 		15673C5D21A3BB5E001F9D99 = {
 			isa = PBXGroup;
 			children = (
-				15673CFD21A3C3AC001F9D99 /* Scripts */,
 				15673C6821A3BB5E001F9D99 /* openPharmacy */,
 				15673C6721A3BB5E001F9D99 /* Products */,
-				15673C7B21A3BC00001F9D99 /* Frameworks */,
+				A9075379D937C01920A7AE1F /* Pods */,
+				5B4C1EF3B4056193F45780FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,10 +144,11 @@
 			isa = PBXGroup;
 			children = (
 				15673D0821A44C9C001F9D99 /* Resources */,
-				15673C8521A3C127001F9D99 /* NMapViewResources.swift */,
 				15673C6921A3BB5E001F9D99 /* AppDelegate.swift */,
 				15673C6B21A3BB5E001F9D99 /* MapViewController.swift */,
+				15F13C9921A72B8000E67F9D /* CustomInfoWindow.swift */,
 				15673C6D21A3BB5E001F9D99 /* Main.storyboard */,
+				15F13C9B21A72F1500E67F9D /* CustomInfoWindow.xib */,
 				15673D2F21A46467001F9D99 /* ListPharmacyController.swift */,
 				15673D0621A4110A001F9D99 /* sigunguListController.swift */,
 				15673C7021A3BB5F001F9D99 /* Assets.xcassets */,
@@ -170,23 +161,6 @@
 				15673D3521A487D4001F9D99 /* dutyListCell.swift */,
 			);
 			path = openPharmacy;
-			sourceTree = "<group>";
-		};
-		15673C7B21A3BC00001F9D99 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				15673C7C21A3BC00001F9D99 /* NMapViewerSDK.framework */,
-				15673C7D21A3BC00001F9D99 /* ApiGatewayMac.framework */,
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		15673CFD21A3C3AC001F9D99 /* Scripts */ = {
-			isa = PBXGroup;
-			children = (
-				15673CFE21A3C3AC001F9D99 /* strip-frameworks.sh */,
-			);
-			path = Scripts;
 			sourceTree = "<group>";
 		};
 		15673D0821A44C9C001F9D99 /* Resources */ = {
@@ -211,6 +185,9 @@
 				15673D1921A44CBE001F9D99 /* logo_incheon.png */,
 				15673D2D21A45987001F9D99 /* mainlogo.png */,
 				15673D1021A44CBE001F9D99 /* logo_jeju.png */,
+				15C7F51621A86FFA00DFBFF4 /* marker_green.png */,
+				15C7F51A21A8761F00DFBFF4 /* phoneIcon.png */,
+				15C7F51721A86FFA00DFBFF4 /* marker_red.png */,
 				15673D1321A44CBE001F9D99 /* logo_jeonbuk.png */,
 				15673D0B21A44CBD001F9D99 /* logo_jeonnam.png */,
 				15673D1821A44CBE001F9D99 /* logo_kangwon.png */,
@@ -225,6 +202,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		5B4C1EF3B4056193F45780FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8AC3A2B1DE949A2F9F5C5271 /* libPods-openPharmacy.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9075379D937C01920A7AE1F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				17E49B6E15BA7E2D9FE4E4ED /* Pods-openPharmacy.debug.xcconfig */,
+				095224D3073A95BFEBEBD181 /* Pods-openPharmacy.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -232,11 +226,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15673C7821A3BB5F001F9D99 /* Build configuration list for PBXNativeTarget "openPharmacy" */;
 			buildPhases = (
+				F4B79F8C57D722044ABBFBF7 /* [CP] Check Pods Manifest.lock */,
 				15673C6221A3BB5E001F9D99 /* Sources */,
 				15673C6321A3BB5E001F9D99 /* Frameworks */,
 				15673C6421A3BB5E001F9D99 /* Resources */,
-				15673C8221A3BC13001F9D99 /* Embed Frameworks */,
-				15673C8321A3BDAF001F9D99 /* Run Script */,
+				97CF0DCB0EA885819E823E6D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,6 +253,7 @@
 				TargetAttributes = {
 					15673C6521A3BB5E001F9D99 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -286,8 +281,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				15673D1D21A44CBE001F9D99 /* logo_sejong.png in Resources */,
-				15673CFF21A3C3AC001F9D99 /* strip-frameworks.sh in Resources */,
 				15673C7421A3BB5F001F9D99 /* LaunchScreen.storyboard in Resources */,
+				15F13C9C21A72F1500E67F9D /* CustomInfoWindow.xib in Resources */,
 				15673D2321A44CBE001F9D99 /* logo_chungnam.png in Resources */,
 				15673D2921A44CBE001F9D99 /* logo_kangwon.png in Resources */,
 				15673D2821A44CBE001F9D99 /* logo_daegu.png in Resources */,
@@ -308,6 +303,8 @@
 				1576639021A51B8A0068629D /* SeoulHangangL.otf in Resources */,
 				1576638B21A50A050068629D /* netmarbleM.ttf in Resources */,
 				1576638C21A50A050068629D /* netmarbleL.ttf in Resources */,
+				15C7F51B21A8761F00DFBFF4 /* phoneIcon.png in Resources */,
+				15C7F51821A86FFA00DFBFF4 /* marker_green.png in Resources */,
 				15673D2021A44CBE001F9D99 /* logo_daejeon.png in Resources */,
 				1576639821A586BA0068629D /* animat-search-color.gif in Resources */,
 				15673C7121A3BB5F001F9D99 /* Assets.xcassets in Resources */,
@@ -317,6 +314,7 @@
 				15673D2121A44CBE001F9D99 /* logo_jeju.png in Resources */,
 				15673D3321A48790001F9D99 /* icon_green.png in Resources */,
 				1576638F21A51B8A0068629D /* SeoulHangangB.otf in Resources */,
+				15C7F51921A86FFA00DFBFF4 /* marker_red.png in Resources */,
 				15673D1A21A44CBE001F9D99 /* logo_gyeongbuk.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,7 +322,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		15673C8321A3BDAF001F9D99 /* Run Script */ = {
+		97CF0DCB0EA885819E823E6D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -332,15 +330,43 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-openPharmacy/Pods-openPharmacy-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
-			name = "Run Script";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nsh ./Scripts/strip-frameworks.sh\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-openPharmacy/Pods-openPharmacy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4B79F8C57D722044ABBFBF7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-openPharmacy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -357,7 +383,7 @@
 				15673D0121A40353001F9D99 /* sidoListController.swift in Sources */,
 				15673CFA21A3C32F001F9D99 /* Header.h in Sources */,
 				15673C6C21A3BB5E001F9D99 /* MapViewController.swift in Sources */,
-				15673C8621A3C127001F9D99 /* NMapViewResources.swift in Sources */,
+				15F13C9A21A72B8000E67F9D /* CustomInfoWindow.swift in Sources */,
 				15673C6A21A3BB5E001F9D99 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,55 +538,51 @@
 		};
 		15673C7921A3BB5F001F9D99 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17E49B6E15BA7E2D9FE4E4ED /* Pods-openPharmacy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V825W3XZDT;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)/**";
 				INFOPLIST_FILE = openPharmacy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lxml2",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinsoo49.openPharmacy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/pro/openPharmacy/openPharmacy/Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "Pods/**";
 			};
 			name = Debug;
 		};
 		15673C7A21A3BB5F001F9D99 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 095224D3073A95BFEBEBD181 /* Pods-openPharmacy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V825W3XZDT;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)/**";
 				INFOPLIST_FILE = openPharmacy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lxml2",
-				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinsoo49.openPharmacy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/pro/openPharmacy/openPharmacy/Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "Pods/**";
 			};
 			name = Release;
 		};
