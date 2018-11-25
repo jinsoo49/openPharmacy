@@ -53,16 +53,18 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate, CLLocati
         return datalist
     }()
     
-    
     func requestMovieInfo(_ s1: String, _ s2: String) {
         // OPEN API 주소
         let sido = s1.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let sigungu = s2.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
-        let weekday = cal.component(.weekday, from: date) - 1
+        var weekday = cal.component(.weekday, from: date) - 1
+        if weekday == 0 {
+            weekday = 8
+        }
         urlStr = "http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire?serviceKey=tksRzRc3Vk7YN6lfzN86PfaFhlZNsTGI1h2RxwYwpG7DBEX0ntu2%2F1ZjhiEQWnUR23s6fcj1qX8sHa355uKrlA%3D%3D&Q0=\(sido)&Q1=\(sigungu)&QT=\(weekday)&ORD=NAME&pageNo=1&startPage=1&numOfRows=100&pageSize=10"
         guard let xmlParser = XMLParser(contentsOf: URL(string: urlStr)!) else { return }
-        
+        print("url : \(urlStr)")
         xmlParser.delegate = self
         xmlParser.parse()
     }
@@ -112,7 +114,10 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate, CLLocati
     // 현재 테그에 담겨있는 문자열 전달
     public func parser(_ parser: XMLParser, foundCharacters string: String)
     {
-        let weekday = cal.component(.weekday, from: date) - 1
+        var weekday = cal.component(.weekday, from: date) - 1
+        if weekday == 0 {
+            weekday = 8
+        }
         if (currentElement == "dutyAddr") {
             dutyAddr = string
         } else if (currentElement == "dutyName") {
@@ -123,17 +128,23 @@ class ListPharmacyController: UITableViewController, XMLParserDelegate, CLLocati
             dutyTell = string
         } else if (currentElement == "dutyTime\(weekday)c") {
             dutyTimec = string
+            print("string1 : \(string)")
             if (string == "21  " || string == "21 " ) {
                 dutyTimec = "2100"
             } else if (string == "200 ") {
                 dutyTimec = "2000"
             } else if (string == "100 "){
                 dutyTimec = "2200"
+            } else if (string == ""){
+                dutyTimec = "0000"
             }
         } else if (currentElement == "dutyTime\(weekday)s") {
             dutyTimes = string
+            print("string2 : \(string)")
             if (string == "09  ") {
                 dutyTimes = "0900"
+            } else if (string == ""){
+                dutyTimes = "0000"
             }
         } else if (currentElement == "wgs84Lat") {
             dutyLat = string
@@ -288,8 +299,11 @@ extension ListPharmacyController {
         if indexPath.section == 0 {
             var openTime = pharOpenItems[indexPath.row]["dutyTimes"]!
             var closeTime = pharOpenItems[indexPath.row]["dutyTimec"]!
+            
+            
             openTime.insert(":", at: openTime.index(openTime.startIndex, offsetBy: 2))
             closeTime.insert(":", at: closeTime.index(closeTime.startIndex, offsetBy: 2))
+            
             cell.dutyName?.text = pharOpenItems[indexPath.row]["dutyName"]
             cell.dutyAddr?.text = pharOpenItems[indexPath.row]["dutyAddr"]
             cell.dutyTime?.text = "영업시간 \(openTime) ~ \(closeTime)"
@@ -303,8 +317,11 @@ extension ListPharmacyController {
         } else {
             var openTime = pharCloseItems[indexPath.row]["dutyTimes"]!
             var closeTime = pharCloseItems[indexPath.row]["dutyTimec"]!
+            
+            
             openTime.insert(":", at: openTime.index(openTime.startIndex, offsetBy: 2))
             closeTime.insert(":", at: closeTime.index(closeTime.startIndex, offsetBy: 2))
+            
             cell.dutyName?.text = pharCloseItems[indexPath.row]["dutyName"]
             cell.dutyAddr?.text = pharCloseItems[indexPath.row]["dutyAddr"]
             cell.dutyTime?.text = "영업시간 \(openTime) ~ \(closeTime)"
@@ -356,6 +373,12 @@ extension ListPharmacyController {
         for i in 0..<pharAllItems.count {
             let closeTime = pharAllItems[i]["dutyTimec"]!
             let openTime = pharAllItems[i]["dutyTimes"]!
+            
+//            guard openTime != "" || closeTime != "" else {
+//                pharAllItems[i].updateValue("영업 종료", forKey: "dutyStatus")
+//                pharCloseItems.append(pharAllItems[i])
+//                continue
+//            }
             
             // 영업 중 / 영업 종료로 나누고 key,value 추가
             if nowTime < Int(closeTime)! && Int(openTime)! < nowTime {
